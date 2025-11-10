@@ -20,29 +20,48 @@ jobs:
     steps:
     - name: List current folder before checkout
       run: ls -la
+      
     - name: Git clone repo
       uses: actions/checkout@v1
+      
+    - name: List current folder after checkout
+      run: ls -la
+      
     - name: Run a one-line script in Build
       run: echo Hello, world Build Job!
+      
     - name: Run multi-line script
       run: |
         echo hello from action to build,
         echo "App name: ${{ env.APLICATION_NAME }}"
-    - name: List current folder after checkout
-      run: ls -la
+    
         
   test_deploy:
     runs-on: ubuntu-latest
     needs: [test_build]
-    
+    env:
+      VAR1: "This is JOB Level Variable1"
+      VAR2: "This is JOB Level Variable2"
+
     steps:
-    - uses: actions/checkout@v1
+    - name: Git clone repo
+      uses: actions/checkout@v1
+      
     - name: Run a one-line script in Deploy
       run: echo Hello, world from Deploy Job!
+
+    - name: print env vars
+      run: |
+       echo "var1 = ${{ env.VAR1 }}"
+       echo "var2 = ${{ env.VAR2 }}"
+       echo "var3 = $LOCAL_VAR"
+      env:
+       LOCAL_VAR: "This is a locka ENV"
+      
     - name: Run multi-line script
       run: |
         echo "Hello from action to build"
         echo "Deplloy package name is ${{ env.PACKAGE_NAME }}"
         aws --version
-        zip
+        zip --version
   
