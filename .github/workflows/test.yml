@@ -7,7 +7,7 @@ name: Git-Test-Actions
 on: 
   push:
     branches: 
-      - master
+      - main
 
 jobs:
   test_build:
