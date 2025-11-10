@@ -18,14 +18,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - name: List current folder before checkout
+      run: ls -la
+    - name: Git clone repo
+      uses: actions/checkout@v1
     - name: Run a one-line script in Build
       run: echo Hello, world Build Job!
     - name: Run multi-line script
       run: |
         echo hello from action to build,
         echo "App name: ${{ env.APLICATION_NAME }}"
-    - name: List current folder
+    - name: List current folder after checkout
       run: ls -la
         
   test_deploy:
@@ -40,4 +43,6 @@ jobs:
       run: |
         echo "Hello from action to build"
         echo "Deplloy package name is ${{ env.PACKAGE_NAME }}"
+        aws --version
+        zip
   
