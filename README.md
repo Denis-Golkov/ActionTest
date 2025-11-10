@@ -1,5 +1,4 @@
 # ActionTest
 This is a test for GitHubActions
 
-Status of Last Deployment:<br>
-<img src="https://github.com/Denis-Golkov/ActionTest/workflows/Git-Test-Actions/badge.svg?branch=main" alt="Git-Test-Actions Status"><br>
+[![Git-Test-Actions Status](https://github.com/Denis-Golkov/ActionTest/workflows/Git-Test-Actions/badge.svg?branch=main)](https://github.com/Denis-Golkov/ActionTest/actions/workflows/git-test-actions.yml)
