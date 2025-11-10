@@ -22,7 +22,7 @@ jobs:
       run: ls -la
       
     - name: Git clone repo
-      uses: actions/checkout@v1
+      uses: actions/checkout@v4
       
     - name: List current folder after checkout
       run: ls -la
@@ -45,7 +45,7 @@ jobs:
 
     steps:
     - name: Git clone repo
-      uses: actions/checkout@v1
+      uses: actions/checkout@v4
       
     - name: Run a one-line script in Deploy
       run: echo Hello, world from Deploy Job!
