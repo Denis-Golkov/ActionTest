@@ -37,5 +37,5 @@ jobs:
     - name: Run multi-line script
       run: |
         echo "Hello from action to build"
-        echo "Deplloy package name is ${{ env.PACKAGE_NAME }} 
+        echo "Deplloy package name is ${{ env.PACKAGE_NAME }}"
   
